@@ -1,0 +1,67 @@
+' Plant UML Notations
+' + public
+' # protected
+' - private
+
+@startuml HydraulicPipeGui
+'###### wxPython: 窗口 ######'
+wx.Window  <|-- wx.Control
+    wx.Control <|-- wx.Anybutton
+    wx.Control <|-- wx.CheckBox
+wx.Window <|-- wx.Panel
+wx.Window <|-- wx.MenuBar
+wx.Window <|-- wx.NonOwnedWindow
+    wx.NonOwnedWindow <|-- wx.Frame
+wx.Window <|-- wx.ScrolledCanvas
+
+'###### xPython: Event ######'
+
+
+'###### Interface: 继承自WxPython ######'
+class gs.graph.NodeGraphBase {
+    - parent
+    + void OnPaint(event)
+    + void OnSize(event)
+}
+
+wx.App <|-- interface.MainApp
+    interface.MainApp --> interface.Myframe
+wx.Frame <|-- interface.Myframe
+    interface.Myframe --> interface.NodeGraph
+wx.ScrolledCanvas <|-- gs.graph.NodeGraphBase
+    gs.graph.NodeGraphBase --> gs.graph.AddNodeBtn
+
+'###### gs.node ######'
+class gs.node.NodeWire {
+
+}
+
+class gs.node.NodeBase {
+
+}
+
+class gs.node.NodeSocket {
+
+}
+
+gs.graph.NodeGraphBase <|-- interface.NodeGraph
+    interface.NodeGraph --> gs.node.NodeBase
+    interface.NodeGraph --> gs.node.NodeWire
+
+'###### nodes ######'
+class nodes.OutputNode {
+
+}
+
+class nodes.ImageNode {
+    
+}
+
+gs.node.NodeBase <|-- nodes.OutputNode
+gs.node.NodeBase <|-- nodes.ImageNode
+gs.node.NodeBase <|-- nodes.MixNode
+gs.node.NodeBase <|-- nodes.BlurNode
+gs.node.NodeBase <|-- nodes.BlendNode
+gs.node.NodeBase <|-- nodes.ValueNode
+
+@enduml
