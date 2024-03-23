@@ -7,7 +7,7 @@
 # ----------------------------------------------------------------------------
 import wx
 import sys
-from interface import MyFrame
+from gui.interface_wx import MyFrame
 
 # Install a custom displayhook to keep Python from setting the global
 # _ (underscore) to the value of the last evaluated expression.

@@ -2,7 +2,7 @@ import sys
 import wx
 from gsnodegraph import EVT_GSNODEGRAPH_ADDNODEBTN
 from nodes import OutputNode, MixNode, ImageNode, BlurNode, BlendNode, ValueNode
-from interface import NodeGraph
+from gui.interface_gs import NodeGraph
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, id=wx.ID_ANY, title=wx.EmptyString,
