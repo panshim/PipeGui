@@ -4,7 +4,7 @@
 ' - private
 
 @startuml HydraulicPipeGui
-'###### wxPython: 窗口 ######'
+'###### wxPython: 窗口、Event ######'
 wx.Window  <|-- wx.Control
     wx.Control <|-- wx.Anybutton
     wx.Control <|-- wx.CheckBox
@@ -14,10 +14,7 @@ wx.Window <|-- wx.NonOwnedWindow
     wx.NonOwnedWindow <|-- wx.Frame
 wx.Window <|-- wx.ScrolledCanvas
 
-'###### xPython: Event ######'
-
-
-'###### Interface: 继承自WxPython ######'
+'###### interface: 继承自WxPython ######'
 class gs.graph.NodeGraphBase {
     - parent
     + void OnPaint(event)
@@ -63,5 +60,11 @@ gs.node.NodeBase <|-- nodes.MixNode
 gs.node.NodeBase <|-- nodes.BlurNode
 gs.node.NodeBase <|-- nodes.BlendNode
 gs.node.NodeBase <|-- nodes.ValueNode
+
+'###### hydraulic ######'
+
+
+'###### layout ######'
+
 
 @enduml
